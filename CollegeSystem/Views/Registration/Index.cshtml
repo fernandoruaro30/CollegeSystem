@@ -1,0 +1,42 @@
+﻿@model IEnumerable<CollegeSystem.Models.Entity.RegistrationEntity>
+
+@{
+    ViewBag.Title = "Registration";
+}
+
+<h2>Registration</h2>
+
+<p>
+    @Html.ActionLink("Create New", "Create")
+</p>
+<div class="loader"></div>
+<div ng-controller="RegistrationController" ng-init="GetRegistration(0,false)">
+    <table class="table">
+        <tr class="headerRow">
+            <th>
+                Student
+            </th>
+            <th>
+                Course
+            </th>
+            <th>
+            </th>
+        </tr>
+
+        <tr ng-repeat="registration in RegistrationDataArr">
+            <td>
+                {{registration.Student.Name}}
+            </td>
+            <td>
+                {{registration.Course.Description}}
+            </td>
+            <td>
+                <a href="/Registration/Edit?IdRegistration={{registration.IdRegistration}}" class="btn btn-primary">
+                    Edit
+                </a>
+                <input type="button" class="btn btn-danger" value="Delete" ng-click="Remove(registration.IdRegistration)" />
+            </td>
+        </tr>
+
+    </table>
+</div>

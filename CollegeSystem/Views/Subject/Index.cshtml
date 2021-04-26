@@ -1,0 +1,56 @@
+﻿@model IEnumerable<CollegeSystem.Models.Entity.SubjectEntity>
+
+@{
+    ViewBag.Title = "Subjects";
+}
+
+<h2>Subjects</h2>
+
+<p>
+    @Html.ActionLink("Create New", "Create")
+</p>
+<div class="loader"></div>
+<div ng-controller="SubjectController" ng-init="GetSubject(0,false)">
+    <table class="table">
+        <tr class="headerRow">
+            <th>
+                Course
+            </th>
+            <th>
+                Description
+            </th>
+            <th>
+                Teacher
+            </th>
+            <th>
+                Number Of Students
+            </th>
+            <th>
+            </th>
+        </tr>
+
+        <tr ng-repeat="subject in SubjectDataArr">
+            <td>
+                {{subject.Course.Description}}
+            </td>
+            <td>
+                {{subject.Description}}
+            </td>
+            <td>
+                Name: {{subject.Teacher.Name}}<br>
+                Bithday: {{subject.Teacher.Birthday | date:'dd/MM/yyyy'}}<br>
+                Salary: {{subject.Teacher.Salary}}
+            </td>
+            <td>
+                {{subject.NumberOfStudents}}
+            </td>
+            <td>
+                <a href="/Subject/Edit?IdSubject={{subject.IdSubject}}" class="btn btn-primary">
+                    Edit
+                </a>
+                <input type="button" class="btn btn-danger" value="Delete" ng-click="Remove(subject.IdSubject)" />
+            </td>
+        </tr>
+
+    </table>
+</div>

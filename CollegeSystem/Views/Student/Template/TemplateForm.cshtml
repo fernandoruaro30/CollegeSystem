@@ -1,0 +1,15 @@
+﻿<form ng-submit="Save()">
+    <div class="form-group">
+        <label for="InputName">Name</label>
+        <input type="text" class="form-control" id="InputName" aria-describedby="nameHelp" placeholder="Enter Name" ng-model="StudentData.Name" required>
+    </div>
+    <div class="form-group">
+        <label for="InputRegistrationNumber">RegistrationNumber</label>
+        <input type="text" class="form-control" id="InputRegistrationNumber" aria-describedby="RegistrationNumberHelp" placeholder="Enter RegistrationNumber" ng-model="StudentData.RegistrationNumber" required>
+    </div>
+    <div class="form-group">
+        <label for="InputBirthday">Birthday</label>
+        <input type="date" value="2011-08-19" class="form-control" id="InputBirthday" aria-describedby="BirthdayHelp" placeholder="Enter Birthday" ng-model="StudentData.Birthday" required>
+    </div>
+    <button type="submit" class="btn btn-primary">Submit</button>
+</form>

@@ -1,0 +1,48 @@
+﻿@model IEnumerable<CollegeSystem.Models.Entity.GradeEntity>
+
+@{
+    ViewBag.Title = "Grades";
+}
+
+<h2>Grades</h2>
+
+<p>
+    @Html.ActionLink("Create New", "Create")
+</p>
+<div class="loader"></div>
+<div ng-controller="GradeController" ng-init="GetGrade(0,false)">
+    <table class="table">
+        <tr class="headerRow">
+            <th>
+                Student
+            </th>
+            <th>
+                Subject
+            </th>
+            <th>
+                Grade
+            </th>
+            <th>
+            </th>
+        </tr>
+
+        <tr ng-repeat="grade in GradeDataArr">
+            <td>
+                {{grade.Student.Name}}
+            </td>
+            <td>
+                {{grade.Subject.Description}}
+            </td>
+            <td>
+                {{grade.Grade}}
+            </td>
+            <td>
+                <a href="/Grade/Edit?IdGrade={{grade.IdGrade}}" class="btn btn-primary">
+                    Edit
+                </a>
+                <input type="button" class="btn btn-danger" value="Delete" ng-click="Remove(grade.IdGrade)" />
+            </td>
+        </tr>
+
+    </table>
+</div>

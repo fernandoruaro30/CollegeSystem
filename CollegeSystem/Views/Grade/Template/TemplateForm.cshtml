@@ -1,0 +1,19 @@
+﻿<form ng-submit="Save()">
+    <div class="form-group">
+        <label for="InputSubject">Subject</label>
+        <select class="form-control form-control-lg" ng-model="GradeData.IdSubject" required>
+            <option value="{{subject.IdSubject}}" ng-repeat="subject in SubjectDataArr">{{subject.Description}}</option>
+        </select>
+    </div>
+    <div class="form-group">
+        <label for="InputStudent">Student</label>
+        <select class="form-control form-control-lg" ng-model="GradeData.IdStudent" required>
+            <option value="{{student.IdStudent}}" ng-repeat="student in StudentDataArr">{{student.Name}}</option>
+        </select>
+    </div>
+    <div class="form-group">
+        <label for="InputGrade">Grade</label>
+        <input type="text" class="form-control" id="InputGrade" aria-describedby="gradeHelp" placeholder="Enter Grade" ng-model="GradeData.Grade">
+    </div>
+    <button type="submit" class="btn btn-primary">Submit</button>
+</form>

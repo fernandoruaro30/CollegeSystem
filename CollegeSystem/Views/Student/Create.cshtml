@@ -1,0 +1,20 @@
+﻿@model CollegeSystem.Models.Entity.StudentEntity
+
+@{
+    ViewBag.Title = "Create - Student";
+}
+
+<h2>Create - Student</h2>
+
+
+<div ng-controller="StudentController" ng-init="GetStudent(0,false)">
+    @Html.Partial("Template/TemplateForm")
+</div>
+
+<div>
+    @Html.ActionLink("Back to List", "Index")
+</div>
+
+@section Scripts {
+    @Scripts.Render("~/bundles/jqueryval")
+}

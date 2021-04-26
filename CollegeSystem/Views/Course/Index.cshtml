@@ -1,0 +1,71 @@
+﻿@model IEnumerable<CollegeSystem.Models.Entity.CourseEntity>
+
+@{
+    ViewBag.Title = "Courses";
+}
+
+<h2>Courses</h2>
+
+<p>
+    @Html.ActionLink("Create New", "Create")
+</p>
+<div class="loader"></div>
+<div ng-controller="CourseController" ng-init="GetCourse(0,false)">
+    <table class="table">
+        <tr ng-repeat="course in CourseDataArr">
+            <td>
+                <table>
+                    <tr class="headerRow">
+                        <th class="col-lg-4">
+                            Description
+                        </th>
+                        <th class="col-lg-4">
+                            Number of Teachers
+                        </th>
+                        <th class="col-lg-4"></th>
+                        <th class="col-lg-4"></th>
+                    </tr>
+                    <tr>
+                        <td class="col-lg-4">
+                            {{course.Description}}
+                        </td>
+                        <td class="col-lg-4">
+                            {{course.NumberOfTeachers}}
+                        </td>
+                        <td class="col-lg-4" style="text-align:right">
+                            <a href="/Course/Edit?IdCourse={{course.IdCourse}}" class="btn btn-primary">
+                                Edit
+                            </a>
+                        </td>
+                        <td class="col-lg-4">
+                            <input type="button" class="btn btn-danger" value="Delete" ng-click="Remove(course.IdCourse)" />
+                        </td>
+                    </tr>
+                    <tr class="headerSubRow">
+                        <th class="col-lg-4">
+                            Student
+                        </th>
+                        <th class="col-lg-4">
+                            Average of Grade
+                        </th>
+                        <th class="col-lg-4">
+                        </th>
+                        <th class="col-lg-4"></th>
+                    </tr>
+                    <tr ng-repeat="student in course.Students">
+                        <td class="col-lg-4">
+                            {{student.Name}}
+                        </td>
+                        <td class="col-lg-4">
+                            {{student.AverageGrades}}
+                        </td>
+                        <th class="col-lg-4"></th>
+                        <th class="col-lg-4"></th>
+                    </tr>
+                </table>
+            </td>
+
+        </tr>
+
+    </table>
+</div>

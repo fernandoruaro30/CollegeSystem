@@ -1,0 +1,19 @@
+﻿@model CollegeSystem.Models.Entity.CourseEntity
+
+@{
+    ViewBag.Title = "Edit - Course";
+}
+
+<h2>Edit - Course</h2>
+
+<div ng-controller="CourseController" ng-init="GetCourse(@Model.IdCourse,true)">
+    @Html.Partial("Template/TemplateForm")
+</div>
+
+<div>
+    @Html.ActionLink("Back to List", "Index")
+</div>
+
+@section Scripts {
+    @Scripts.Render("~/bundles/jqueryval")
+}

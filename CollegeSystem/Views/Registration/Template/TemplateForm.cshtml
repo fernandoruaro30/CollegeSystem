@@ -1,0 +1,15 @@
+﻿<form ng-submit="Save()">
+    <div class="form-group">
+        <label for="InputCourse">Course</label>
+        <select class="form-control form-control-lg" ng-model="RegistrationData.IdCourse" required>
+            <option value="{{course.IdCourse}}" ng-repeat="course in CourseDataArr">{{course.Description}}</option>
+        </select>
+    </div>
+    <div class="form-group">
+        <label for="InputStudent">Student</label>
+        <select class="form-control form-control-lg" ng-model="RegistrationData.IdStudent" required>
+            <option value="{{student.IdStudent}}" ng-repeat="student in StudentDataArr">{{student.Name}}</option>
+        </select>
+    </div>
+    <button type="submit" class="btn btn-primary">Submit</button>
+</form>

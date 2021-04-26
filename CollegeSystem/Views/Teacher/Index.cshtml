@@ -1,0 +1,48 @@
+﻿@model IEnumerable<CollegeSystem.Models.Entity.TeacherEntity>
+
+@{
+    ViewBag.Title = "Teachers";
+}
+
+<h2>Teachers</h2>
+
+<p>
+    @Html.ActionLink("Create New", "Create")
+</p>
+<div class="loader"></div>
+<div ng-controller="TeacherController" ng-init="GetTeacher(0,false)">
+    <table class="table">
+        <tr class="headerRow">
+            <th>
+                Name
+            </th>
+            <th>
+                Salary
+            </th>
+            <th>
+                Birthday
+            </th>
+            <th>
+            </th>
+        </tr>
+
+        <tr ng-repeat="teacher in TeacherDataArr track by $index">
+            <td>
+                {{teacher.Name}}
+            </td>
+            <td>
+                {{teacher.Salary}}
+            </td>
+            <td>
+                {{teacher.Birthday | date:'dd/MM/yyyy'}}
+            </td>
+            <td>
+                <a href="/Teacher/Edit?IdTeacher={{teacher.IdTeacher}}" class="btn btn-primary">
+                    Edit
+                </a>
+                <input type="button" class="btn btn-danger" value="Delete" ng-click="Remove(teacher.IdTeacher)" />
+            </td>
+        </tr>
+
+    </table>
+</div>
